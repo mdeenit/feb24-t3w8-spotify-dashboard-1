@@ -16,7 +16,7 @@ export function useSpotifyAuthContext(){
 
 // Client ID from app configured in Spotify developer dashboard
 // https://developer.spotify.com/dashboard
-const clientId = "14e4e57b7b2b4a93a859cf033350c84f";
+const clientId = "85177ec783444676b0f5fc1465edd850";
 
 export function SpotifyAuthProvider({children}){
 	// Code required for Spotify sign-in process, not usable in API requests
@@ -68,7 +68,7 @@ export function SpotifyAuthProvider({children}){
 		params.append("grant_type", "authorization_code");
 		params.append("code", code);
 		// params.append("redirect_uri", process.env.SOME_SPOTIFY_REDIRECT_URI);
-		params.append("redirect_uri", "http://localhost:5173/spotifycallback");
+		params.append("redirect_uri", "http://localhost:5173/com/spotifycallback");
 		params.append("code_verifier", verifier);
 
 		// https://api.spotify.com/auth?client_id=oqeihrt90183yrt2ogknjs&code=
@@ -95,8 +95,8 @@ export function SpotifyAuthProvider({children}){
 		const params = new URLSearchParams();
 		params.append("client_id", clientId);
 		params.append("response_type", "code");
-		params.append("redirect_uri", "http://localhost:5173/spotifycallback");
-		params.append("scope", "user-read-private user-read-email");
+		params.append("redirect_uri", "http://localhost:5173/com/spotifycallback");
+		params.append("scope", "user-top-read user-read-private user-read-email");
 		params.append("code_challenge_method", "S256");
 		params.append("code_challenge", challenge);
 	
